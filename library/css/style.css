@@ -1,0 +1,880 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/* Headings
+   ========================================================================== */
+/* Syntax as in Storefront by default: */
+/**
+ * BreakPoints
+ */
+/* HEADER */
+/**
+ * Globally set the body opacity to 0...
+ * - This makes the page unseeable for .no-js users...
+ * => Implement .no-js/.js class function!
+ * => So now it only gets hidden when the .js class exists, but maybe turn that around, so that it is initially hidden but shown at .no-js...
+ */
+/* Produkte */
+/**
+ * Page: Start (Home)
+ */
+/**
+ * Notes:
+ * -----
+ * #0: Class to refer only to a specific page
+ * - we can use .page-start or even .home
+ * => Although maybe the homepage will change sometime, so its propably better to use a page-slug class, although when changing the slug/title, we have to change this here as well.
+ * => Using the id would be the best solution for not having to change it, though its unreadable...
+ * => Use .page-start now.
+ * -----
+ * #1
+ * - In the page-name.scss files, we should not change the page-layout**actually we do but i mean more the site-layout..., like anything that is not inside article.hentry or even not inside .entry-content ?
+ * => Ok maybe you want a special page-header / page-footer as well so just always stay inside: <article class=".hentry">. WordPress just defines the .hentry class, that is usually taken...?
+ * -----
+ */
+/* Ajax FIX */
+/* BACK TO TOP */
+/**
+ * Fix: Teilen mit... font-size
+ * - Move to Fixes (or just more down...)
+ */
+/* FOOTER */
+.delta, h4 {
+  /**
+ * Breadcrumb
+ */
+}
+.woocommerce-breadcrumb a:first-of-type {
+  /**
+ * Sidebar
+ */
+  /**
+ * Widgets
+ */
+  /**
+ * Widget-Title
+ */
+  /* Storefront Default */
+}
+.widget h2.widgettitle, .widget h3.widget-title {
+  font-size: 1.387em;
+  letter-spacing: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  padding: 0 0 1em;
+  margin-bottom: 1em;
+  font-weight: 700;
+  /* Fix */
+}
+.widget h2.widgettitle, .widget h3.widget-title {
+  font-size: 1.387em;
+  letter-spacing: 1px;
+  /**
+ * Content-Box-Contrast
+ */
+  /*
+- Das größte Problem ist bei der Desktop-Darstellung, dass es echt kacke aussieht, wenn man zwei vertikale Text-Fluss Linien hat!... => Dazu siehe Mobil/Tablet, dort ist es nur eine vertikale Linie und es sieht sooo viel besser aus!... Aber wie soll man das machen bei Desktop, vor allem mit der Sidebar...
+  => Eine Lösung könnte sein, dass man halt NUR Content-Boxes verwendet... dann gibt es global über mehrere Seiten gesehen aber TROTZDEM 2 vertikale Textflusslinien... **?? Nennt man das so?...
+*/
+}
+.content-box {
+  margin-left: -1.387em;
+  margin-right: -1.387em;
+  padding: 1.387em;
+  margin-bottom: 1.618em;
+}
+@media (min-width: 569px) {
+  .content-box {
+    margin-left: -2.618em;
+    margin-right: -2.618em;
+    padding: 2.618em;
+  }
+}
+@media (min-width: 768px) {
+  .content-box {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1.618em;
+    border-radius: 3px;
+  }
+}
+.content-box > :last-child {
+  margin-bottom: 0;
+}
+.contrast {
+  color: white;
+}
+.contrast h1, .contrast h2, .contrast h3, .contrast h4, .contrast h5, .contrast h6 {
+  color: inherit;
+  /**
+ * Background Classes
+ */
+  /**
+ * Dynamic Background Overlay
+ */
+}
+.bg-darker {
+  background-color: rgba(0, 0, 0, .25);
+}
+.bg-lighter {
+  background-color: rgba(255, 255, 255, .25);
+  /**
+ * Constant Colors
+ */
+}
+.bg-lightblue {
+  background-color: #6fcbf3;
+}
+.bg-blue {
+  background-color: #004a7c;
+}
+.bg-orange {
+  background-color: #e99900;
+}
+.bg-green {
+  background-color: #007c06;
+}
+.bg-darkgrey {
+  background-color: #484c51;
+  /*.bg-lightgrey {
+  background-color: hsla(0, 0%, 0%, .125);
+}*/
+}
+.border {
+  border-width: 2px;
+  border-style: solid;
+  /*hsla(0, 0%, 0%, 1);*/
+  border-color: #484c51;
+}
+.contrast.border {
+  /*.three-steps-intro {
+}
+
+.three-steps-intro > i {
+}*/
+}
+.bg-container {
+  position: relative;
+  overflow: hidden;
+}
+.bg-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(-12.5%) translateY(42.5%);
+  transition: all 0.625s ease;
+  /* SlideOut (to right) for Mobile */
+  /* Sliding in
+- Little too Slow (1.375s)*/
+  /*.bg-icon {
+  right: 1.387rem;
+}
+
+@media (min-width: 569px) {
+  .bg-icon {
+    right: 2.618rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-icon {
+    right: 1.618rem;
+  }
+}*/
+  /**
+ * Site-Background
+ */
+  /*
+- Hier mit >= Desktop Media-Query; ist die Frage ob man das für Mobil/Tablet benötigt, immerhin sind das 217kb...
+- Vorerst bleibt es jetzt mal für alle Medien...
+ */
+}
+@media (min-width: 768px) {
+  /*
+=> Dann benötigt das Standard Template Content+Sidebar weißen Hintergrund...
+ */
+  /* Über uns */  body {
+    background-image: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/05/purty_wood.png);
+  }
+  .content-area, .widget-area {
+    background-color: #fff;
+    padding: 1.618em;
+    /* 3px; */
+    border-radius: 5px;
+  }
+}
+.page-ueber-uns .list-employees {
+  margin-left: 0;
+  list-style: none;
+}
+@media (min-width: 569px) {
+  .page-ueber-uns .list-employees {
+    position: relative;
+  }
+  .page-ueber-uns .list-employees img {
+    position: absolute;
+    left: 0;
+  }
+  .page-ueber-uns .list-employees > li {
+    margin-left: 148px;
+  }
+}
+@media (min-width: 768px) {
+  /**
+ * Image List (Das Team)...
+ */
+  /*
+Probleme bei Namensgebung, ob entweder über .page-das-team oder, und einer Container Klasse oder einer Klasse für die spezielle Liste... Oder als :first-child, aber das macht irgendwie wenig Sinn? Villeicht doch...
+ */}
+.page-ueber-uns .entry-content ul li:last-child p:last-child img {
+  /**
+ * Produkte Start
+ */
+  /*
+- Pretty messed up... could also need better syntax inside the html editor...
+- no time!!!
+- not much sence to change this now...
+
+-> UX/UI Thing:
+- Now when you go to a specific product preview page out of the start product page, the Site-Title that has been overlaying the presentational image, gets pushed below it, as usual. Now you would have to make it also an Overlay, but bigger font-size... that would be the best case. OR not define the overlay... but its more handy and makes alot of sense, because the image is not that important, it plays together, you can use the image as an definition of the product type still, although there is text overlaying it. Therefore it makes much sense...
+=> So the logical consequence is to create an card text overlay for the product sub-pages as well...
+ */
+}
+.page-produkte .entry-content .wp-caption {
+  position: relative;
+  overflow: hidden;
+}
+.page-produkte .entry-content .wp-caption .wp-caption-text {
+  /* Absolute position the element... */
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* ...to the bottom of the parent container, if not set to static (default) => relative */
+  bottom: 0;
+  /* Set padding to the link element, so there is no non-linking space */
+  padding: 0;
+  /*background-color: hsla(0,0%,100%,.5);*/
+  /* White */
+  border: none;
+  /* Black */
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 0 0 3px 3px;
+}
+.page-produkte .entry-content .wp-caption .wp-caption-text a {
+  display: block;
+  /* Default Heading Style */
+  /*color: #484c51;*/
+  /* Black */
+  padding: 0.75rem 1.25rem;
+  /* White */
+  /*font-size: 1.618em;*/
+  /* h3 */
+  /* This should really be done through a class, so that you can then in the end define a smaller font-size for headlines, etc. for mobile... */
+  /* Do it! */
+  /* Aaaand the class is: .gamma or .h3 => .h3 seems more logical... but for now it is .gamma.. */
+  /* .h3 is inside bootstrap and also sets margin-bottom... => Would have to get negated then... */
+  /* .gamma is this 1.618em and .h3 is 1.75rem, maybe generally it is a good idea to use rem for this kind, so it is always the same size and not dependand on other stuff... */
+  /* Example: Sidebar .h3 will then become the original h3, but it should be smaller? -_- */
+  color: #fff;
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.page-produkte .entry-content .wp-caption .wp-caption-text a:hover, .page-produkte .entry-content .wp-caption .wp-caption-text a:focus {
+  text-decoration: none;
+  /* White */
+  color: #fff;
+  /* Default WordPress Caption Styles */
+}
+.wp-caption .wp-caption-text {
+  /************************************/
+  /* J - CSS */
+  /************************************/
+}
+.content-area {
+  padding: 40px 40px 10px !important;
+  margin-right: 20px !important;
+}
+.site-main {
+  margin-bottom: 0;
+}
+.hentry {
+  margin: 0;
+}
+.entry-header {
+  border-bottom: 0;
+  margin-bottom: 30px !important;
+  margin-left: -20px;
+  width: calc(100% + 40px);
+  margin-top: -20px;
+  border: none !important;
+  max-height: 553px;
+  overflow: hidden;
+  position: relative;
+}
+h1.entry-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  margin: 0;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+.produkte .entry-header {
+  display: none;
+}
+.entry-content {
+  border-top: 1px dotted rgba(0, 0, 0, 0.2);
+  padding-top: 40px;
+}
+.page-start .entry-content, .produkte .entry-content {
+  border-top: none;
+  padding-top: 0;
+  /* pages without featured image */
+}
+.service .entry-header, .ueber-uns .entry-header, .kontakt .entry-header {
+  border-bottom: 0;
+  max-height: 500px;
+  overflow: hidden;
+  margin-bottom: 30px !important;
+  position: relative;
+  margin-top: 0;
+}
+.service h1, .ueber-uns h1, .kontakt h1 {
+  position: initial;
+  bottom: initial;
+  width: initial;
+  background: initial;
+  margin: initial;
+  padding-top: initial;
+}
+p + h2 {
+  margin-top: 1em;
+}
+.js {
+  /**
+ * Spinner
+ */
+}
+.js body {
+  opacity: 0;
+}
+@keyframes rotating-function {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.site {
+  position: relative;
+}
+.site:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: calc(50% - 70px);
+  top: 500px;
+  width: 140px;
+  height: 140px;
+  background-image: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/FRG-Loader-1.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: rotating-function 5s linear infinite;
+  z-index: -1;
+}
+#slideshow {
+  display: none;
+}
+#slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+#slideshow > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
+.claim {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: #fff;
+  font-size: 35px;
+  line-height: 2em;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+  display: flex;
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  flex-wrap: wrap;
+  left: calc(50% - 250px);
+  top: -4em;
+}
+.claim p {
+  margin: 0;
+}
+.claim-text-2:after, .claim-text-1:after {
+  width: 100%;
+  content: "";
+  height: 1px;
+  border-top: 1px dotted white;
+  display: block;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+  margin-top: -0.15em;
+  /**
+ * Site-Logo
+ */
+}
+.site-header .site-branding {
+  float: none;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 1.618em;
+}
+@media (min-width: 768px) {
+  .site-header .site-branding {
+    display: inline-block;
+    float: none;
+    clear: both;
+    min-width: 200px;
+    width: 22.72727%;
+    margin-right: 4.34783%;
+    margin-bottom: 2.618em;
+  }
+}
+.site-header .site-branding h1 {
+  max-width: 150px;
+}
+@media (min-width: 544px) {
+  .site-header .site-branding h1 {
+    max-width: 200px;
+  }
+}
+@media (min-width: 768px) {
+  .site-header .site-branding h1 {
+    max-width: none;
+  }
+}
+.site-header .site-branding h1 a {
+  display: block;
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 50%;
+  padding-top: 100%;
+  height: 0;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/FRG-Logo-Redesign.png) no-repeat;
+  background-size: contain;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25);
+}
+@media (min-width: 768px) {
+  .site-header .site-branding h1 a {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+}
+.site-header .site-branding .site-description {
+  display: none;
+  /*
+.site-header .custom-logo-link {
+  width: 250px;
+  height: 250px;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/FRG-Logo-Redesign.png) no-repeat;
+  background-size: contain;
+  border: 10px solid rgba(255,255,255,0.3);
+  border-radius: 125px;
+  margin-left: -10px;
+}
+.site-header .custom-logo-link img {
+  display: none;
+}*/
+}
+.header-icons-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
+  right: 5px;
+}
+.header-icons-container > a {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+.header-icons-container > a:hover {
+  transform: scale(1.1);
+  transition: all 0.15s ease-in-out;
+}
+.header-icons-container > a > div {
+  height: 100%;
+}
+.header-icon-1 {
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/header-icon-googlemaps.svg);
+}
+.header-icon-2 {
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/header-icon-fb.svg);
+  /* CONTENT */
+}
+.content-area {
+  padding: 40px;
+  margin-right: 20px !important;
+}
+.widget-area {
+  width: 25%;
+}
+.site-content {
+  min-height: 90vh;
+}
+.page-start .entry-header {
+  display: none;
+}
+.page-start .sharedaddy {
+  margin-top: 0;
+  /**
+ * Panorama
+ * - Wird oft auf als "Hero" bezeichnet, so eine hervorstehende box.
+ */
+}
+.panorama {
+  position: relative;
+  overflow: hidden;
+  height: 360px;
+  background-image: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/360.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.intro h1 {
+  color: inherit;
+}
+.intro > * {
+  z-index: 1;
+  position: relative;
+}
+.intro {
+  color: white !important;
+  margin: auto;
+  padding-left: 40px;
+  padding-top: 50px;
+}
+.intro:after {
+  background-image: linear-gradient(to top, #7c0029 0%, #a0002e 100%);
+  content: "";
+  width: 680px;
+  height: 680px;
+  display: block;
+  position: absolute;
+  border-radius: 340px;
+  top: -170px;
+  left: -340px;
+  z-index: 0;
+  opacity: 0.95;
+  /**
+ * Schritte (Multiple Columns Layout)
+ */
+}
+.main-selection-container {
+  display: flex;
+  width: calc(100% + 60px);
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-bottom: 30px;
+  margin-top: -30px;
+}
+.main-selection-item {
+  max-width: calc(50% - 20px);
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  margin: 10px;
+  border-radius: 3px;
+}
+.main-selection-container a h1 {
+  color: #fff !important;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-weight: 500;
+  font-size: 45px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dotted white;
+  margin: 0;
+}
+.main-selection-container a img {
+  width: auto;
+  height: 100%;
+  max-width: initial;
+}
+@media (min-width: 768px) {
+  .site-content {
+    min-height: 90vh;
+  }
+}
+@media (max-width: 768px) {
+  .main-navigation div.menu, .main-navigation .handheld-navigation {
+    background-color: white;
+  }
+}
+@media (min-width: 768px) {
+  .main-navigation ul.menu, .main-navigation ul.nav-menu {
+    margin-right: -0.125em;
+  }
+  .main-navigation ul.menu > li, .main-navigation ul.nav-menu > li {
+    float: left;
+    margin-right: 0.125em;
+    background-color: white;
+  }
+  .main-navigation ul.menu ul.sub-menu, .main-navigation ul.nav-menu ul.sub-menu, .main-navigation ul.menu ul.children, .main-navigation ul.nav-menu ul.children {
+    background-color: transparent;
+  }
+  .main-navigation ul.menu ul.sub-menu:before, .main-navigation ul.nav-menu ul.sub-menu:before, .main-navigation ul.menu ul.children:before, .main-navigation ul.nav-menu ul.children:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 0;
+  }
+  .main-navigation ul.menu ul.sub-menu:after, .main-navigation ul.nav-menu ul.sub-menu:after, .main-navigation ul.menu ul.children:after, .main-navigation ul.nav-menu ul.children:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, .25);
+    z-index: -3;
+  }
+  .main-navigation ul.menu ul.sub-menu > li > .sub-menu, .main-navigation ul.nav-menu ul.sub-menu > li > .sub-menu, .main-navigation ul.menu ul.children > li > .sub-menu, .main-navigation ul.nav-menu ul.children > li > .sub-menu {
+    z-index: -1;
+  }
+  .main-navigation ul.menu ul.sub-menu > li > .sub-menu > li > .sub-menu, .main-navigation ul.nav-menu ul.sub-menu > li > .sub-menu > li > .sub-menu, .main-navigation ul.menu ul.children > li > .sub-menu > li > .sub-menu, .main-navigation ul.nav-menu ul.children > li > .sub-menu > li > .sub-menu {
+    z-index: -2;
+  }
+}
+.site-header ul.menu li.current-page-ancestor, .site-header ul.nav-menu li.current-page-ancestor, .site-header ul.menu li.current-menu-ancestor, .site-header ul.nav-menu li.current-menu-ancestor, .site-header ul.menu li.current_page_ancestor, .site-header ul.nav-menu li.current_page_ancestor {
+  background: #004a7c;
+}
+.site-header ul.menu li.current-page-ancestor > a, .site-header ul.nav-menu li.current-page-ancestor > a, .site-header ul.menu li.current-menu-ancestor > a, .site-header ul.nav-menu li.current-menu-ancestor > a, .site-header ul.menu li.current_page_ancestor > a, .site-header ul.nav-menu li.current_page_ancestor > a {
+  color: white;
+}
+.site-header ul.menu li.current-menu-item, .site-header ul.nav-menu li.current-menu-item {
+  background: #004a7c;
+}
+@media (min-width: 768px) {
+  .main-navigation ul.menu ul a:hover, .main-navigation ul.nav-menu ul a:hover, .main-navigation ul.menu ul li:hover > a, .main-navigation ul.nav-menu ul li:hover > a {
+    background-color: rgba(0, 0, 0, .25);
+  }
+}
+.main-navigation ul li a:hover, .main-navigation ul li:hover > a {
+  color: #004a7c;
+}
+.main-navigation ul li a, ul.menu li a {
+  color: #004a7c;
+}
+@media (min-width: 768px) {
+  .main-navigation ul.menu > li:first-child, .main-navigation ul.nav-menu > li:first-child {
+    margin-left: 0;
+  }
+}
+.site-header {
+  /**
+ * Button-Padding
+ */
+}
+.main-navigation ul li a {
+  padding: 0.75em 0;
+  display: block;
+}
+@media (min-width: 768px) {
+  .main-navigation ul.menu > li > a, .main-navigation ul.nav-menu > li > a {
+    padding: 0.75em 1em;
+  }
+}
+@media (min-width: 768px) {
+  /**
+ * Site-Layout: Navigation Bar / Mobile Navigation
+ */  .main-navigation ul.menu ul li a, .main-navigation ul.nav-menu ul li a {
+    padding: 0.75em 1em;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+}
+.col-full {
+  background: rgba(255, 0, 0, .375);
+}
+@media (min-width: 768px) {
+  .storefront-primary-navigation {
+    clear: both;
+    background: rgba(0, 0, 0, .06);
+    margin-left: -99em;
+    margin-right: -99em;
+    padding-left: 99em;
+    padding-right: 99em;
+  }
+}
+.storefront-primary-navigation {
+  background-color: rgba(0, 255, 0, .375);
+}
+@media (min-width: 768px) {
+  /*
+.main-navigation ul {
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.1) ;
+}
+*/
+  /**
+ * Storefront Fixes
+ */  .storefront-primary-navigation {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (min-width: 768px) {
+  /**
+ * Main-Navigation
+ */}
+@media (min-width: 768px) {
+}
+.main-navigation ul ul .current_page_item, .main-navigation ul ul .current_page_item > a, .main-navigation ul ul .current_page_item > a:hover {
+  /**
+ * Main Navigation Background Fade
+ */
+  /**
+ * Cart
+ */
+}
+@media (min-width: 768px) {
+  /**
+ * Hamburger-Menu
+ */
+  /**
+ * Fix Hamburger Menu Plugin for Storefront
+ * - The styles are enqeued at max-width: $desktop
+ *   => 1 px too much
+ *   => Hide again at min-width: $desktop
+ */  .site-header-cart {
+    background: white;
+  }
+  .site-header-cart .cart-contents {
+    padding: 0.75em 0;
+  }
+}
+@media (min-width: 768px) {
+  /**
+ * Although the site-cart is hidden for mobile it also adds relative right position offset of 2.618em;
+ */  .storefront-hamburger-menu-active .main-navigation .handheld-navigation, .storefront-hamburger-menu-active .main-navigation div.menu {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  /**
+ * Dev auto trigger hover
+ * - set class .hovered via js (inside sublime-custom-functions)
+ */  .storefront-hamburger-menu-active .site-header-cart .cart-contents {
+    right: 0;
+  }
+}
+@media (min-width: 768px) {
+  .main-navigation ul li.focus > ul, .secondary-navigation ul li.focus > ul, .main-navigation ul li:hover > ul, .secondary-navigation ul li:hover > ul, .main-navigation ul li.hovered > ul, .secondary-navigation ul li.hovered > ul {
+    left: 0;
+    display: block;
+  }
+  .main-navigation ul li.focus > ul li.focus > ul, .secondary-navigation ul li.focus > ul li.focus > ul, .main-navigation ul li:hover > ul li.focus > ul, .secondary-navigation ul li:hover > ul li.focus > ul, .main-navigation ul li.hovered > ul li.focus > ul, .secondary-navigation ul li.hovered > ul li.focus > ul, .main-navigation ul li.focus > ul li:hover > ul, .secondary-navigation ul li.focus > ul li:hover > ul, .main-navigation ul li:hover > ul li:hover > ul, .secondary-navigation ul li:hover > ul li:hover > ul, .main-navigation ul li.hovered > ul li:hover > ul, .secondary-navigation ul li.hovered > ul li:hover > ul, .main-navigation ul li.focus > ul li.hovered > ul, .secondary-navigation ul li.focus > ul li.hovered > ul, .main-navigation ul li:hover > ul li.hovered > ul, .secondary-navigation ul li:hover > ul li.hovered > ul, .main-navigation ul li.hovered > ul li.hovered > ul, .secondary-navigation ul li.hovered > ul li.hovered > ul {
+    left: 100%;
+    top: 0;
+    display: block;
+  }
+}
+#wpfront-scroll-top-container {
+  width: 60px;
+  height: 60px;
+}
+#wpfront-scroll-top-container img {
+  display: none;
+}
+#wpfront-scroll-top-container:before, #wpfront-scroll-top-container:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  border-radius: 100px;
+}
+#wpfront-scroll-top-container:before {
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/back-to-top.svg);
+  z-index: 1;
+}
+#wpfront-scroll-top-container:after {
+  z-index: 0;
+  background: white;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
+#wpfront-scroll-top-container:hover:after {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+.site-header {
+  padding: 0;
+  border-bottom: 1px solid #fff;
+}
+.site-footer {
+  background-color: #f0f0f0;
+  color: #61656b;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/concrete-2.jpg);
+  border-top: 1px solid white;
+  position: relative;
+}
+.footer-widgets {
+  padding-top: 30px;
+  border-bottom: 1px solid #fff;
+}
+.site-footer h3 {
+  color: #7c0029 !important;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+.site-footer h4 {
+  color: #002b48;
+}
+.site-footer p, .site-footer a {
+  color: black !important;
+}
+.site-footer a {
+  font-weight: 500;
+}
+.site-info {
+  text-align: center;
+}
+.site-footer:after {
+  content: "" !important;
+  display: block;
+  height: 200px;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/Fahrrad-frei-Zusatzzeichen_1022-10.svg) no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: 150px;
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+}

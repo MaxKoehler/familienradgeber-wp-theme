@@ -1,0 +1,138 @@
+
+
+
+
+// .sharedaddy {
+//   .sd-social-icon {
+//   }
+//   .sd-title {
+//   }
+//   .sd-content {
+//     ul {
+//       margin: 0;
+//       li {
+//         list-style: none;
+//         &.share-end {
+//           display: none;
+//         }
+//         a {
+//           span:first-child {
+//             display: none;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .sharing-screen-reader-text {
+//   @include hide-text();
+//   display: block;
+// }
+
+
+
+/**
+ * Fix: Teilen mit... font-size
+ * - Move to Fixes (or just more down...)
+ */
+
+// div.sharedaddy h3.sd-title {
+//     font-size: 1.188em;
+// }
+
+// .sharedaddy {
+//   border-top: 1px dotted rgba(0, 0, 0, 0.2);
+//   margin-top: 40px;
+// }
+
+// .sharedaddy h3 {
+//   margin: 0 5px 0 0 !important;
+// }
+
+// .sd-title:before {
+//   display: none !important;
+// }
+
+// .sharedaddy > div {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100px;
+// }
+
+// .sd-content span {
+//   display: none;
+// }
+
+// .sd-content ul {
+//   margin: 0 !important;
+// }
+
+// .sd-content ul li {
+//   margin: 0 !important;
+//   margin-left: 5px !important;
+// }
+
+// .sd-content ul li a {
+//   padding: 0 !important;
+//   border-radius: 100px !important;
+//   border: none !important;
+//   background: none !important;
+//   box-shadow: none !important;
+//   /*    background-image: linear-gradient(to top,#EBEBEB 0%,#FFFFFF 100%) !important;*/
+//   position: relative;
+//   margin-bottom: 0 !important;
+// }
+
+// .sd-content ul li a:before,
+// .sd-content ul li a:after {
+//   content: "" !important;
+//   width: 50px;
+//   height: 50px;
+//   top: 0 !important;
+//   border-radius: 100px;
+// }
+
+// .sd-content ul li a:before {
+//   opacity: .3;
+//   border: 1px solid;
+// }
+
+// .sd-content ul li a:after {
+//   position: absolute;
+//   top: 0;
+//   z-index: 9;
+//   left: 0;
+//   opacity: 0;
+//   transition: all .5s ease;
+// }
+
+// .sd-content ul li:hover a:after {
+//   opacity: 1;
+//   transition: all .3s ease-in-out;
+// }
+
+// .share-facebook a:before {
+//   background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/icon-facebook.svg);
+// }
+
+// .share-facebook a:after {
+//   background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/icon-facebook-w.svg);
+// }
+
+// .share-twitter a:before {
+//   background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/icon-twitter.svg);
+// }
+
+// .share-twitter a:after {
+//   background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/icon-twitter-w.svg);
+// }
+
+// .share-google-plus-1 a:before {
+//   background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/icon-googleplus.svg);
+// }
+
+// .share-google-plus-1 a:after {
+//   background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/icon-googleplus-w.svg);
+// }

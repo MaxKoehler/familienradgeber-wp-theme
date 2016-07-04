@@ -1,0 +1,235 @@
+/**
+ * Page: Start (Home)
+ */
+/**
+ * Notes:
+ * -----
+ * #0: Class to refer only to a specific page
+ * - we can use .page-start or even .home
+ * => Although maybe the homepage will change sometime, so its propably better to use a page-slug class, although when changing the slug/title, we have to change this here as well.
+ * => Using the id would be the best solution for not having to change it, though its unreadable...
+ * => Use .page-start now.
+ * -----
+ * #1
+ * - In the page-name.scss files, we should not change the page-layout**actually we do but i mean more the site-layout..., like anything that is not inside article.hentry or even not inside .entry-content ?
+ * => Ok maybe you want a special page-header / page-footer as well so just always stay inside: <article class=".hentry">. WordPress just defines the .hentry class, that is usually taken...?
+ * -----
+ */
+
+// .page-start .content-area {
+//     width: 100% !important;
+//     max-width: 100% !important;
+//     padding: 20px !important;
+//     margin-right: 0 !important;
+// }
+// => See note#1: do not change the site-layout here!
+
+// .page-start .site-main {
+//   margin: 0;
+// }
+// => Also note#1 ? Does this create global inconsistencies? I'm not sure about this one...
+
+// .page-start .hentry {
+//   margin: 0;
+// }
+// => ACTUALLY this is also not INSIDE .hentry ... margin is OUTSIDE of the object,
+// so this is also not possible... ?!? => note#1
+
+
+.page-start .entry-header {
+  display: none;
+}
+
+.page-start .sharedaddy {
+  margin-top: 0;
+}
+
+/**
+ * Panorama
+ * - Wird oft auf als "Hero" bezeichnet, so eine hervorstehende box.
+ */
+.panorama {
+  position: relative; // Give the red background dot something to grip on.
+  overflow: hidden; // Prevent the red background dot from overflowing.
+
+  height: 360px;
+  // - Should be made working without a fixed height.
+
+  background-image: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/360.jpg);
+  background-position: center; // => Horizontal/Vertikal zentriert
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // margin-bottom: 0; // (default: 0) // 1.618em; // => Line-Height
+  // Wieviel nimmt man hier am besten?
+  // - Mobil/Desktop gleich?
+  // - Globale Line-Height = 1.618 ( Das ist wirklich ein komischer Wert )
+  // - Vielleicht auch px verwenden?
+  // => Zum Beispiel bei apple.com, würde das als eine <section> gelten
+  // => Generell haben die Sektionen dort gar keinen margin-bottom, also wenn es jetzt hier darum geht die Überschriften des nächsten Elements nach unten zu bewegen, das hat ja nichts mehr mit der Panorama Box zu tun, das ist ja schon wieder ein Style der nächsten Sektion also "Schritte" spezifisch => Padding-top in Schritte! => Und das macht auch erleichternd so viel Sinn...
+  // => Margin-bottom = 0!
+  //    => Next Element = Padding-Top
+}
+
+.intro h1 {
+  color: inherit;
+}
+
+.intro > * {
+    z-index: 1;
+    position: relative;
+}
+
+.intro {
+    color: white !important;
+    margin: auto;
+    padding-left: 40px;
+    padding-top: 50px;
+}
+
+.intro:after {
+    // background-image: -ms-linear-gradient(bottom, #7C0029 0%, #A0002E 100%);
+    // background-image: -moz-linear-gradient(bottom, #7C0029 0%, #A0002E 100%);
+    // background-image: -o-linear-gradient(bottom, #7C0029 0%, #A0002E 100%);
+    // background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7C0029), color-stop(100, #A0002E));
+    // background-image: -webkit-linear-gradient(bottom, #7C0029 0%, #A0002E 100%);
+    // => No need to prefix on SASS.
+    background-image: linear-gradient(to top, #7C0029 0%, #A0002E 100%);
+
+    content: "";
+    width: 680px;
+    height: 680px;
+    display: block;
+    position: absolute;
+    border-radius: 340px;
+    top: -170px;
+    left: -340px;
+    z-index: 0;
+    opacity: .95;
+}
+
+/**
+ * Schritte (Multiple Columns Layout)
+ */
+// - Remake this!
+
+// .schritte {
+//     display: flex;
+//     align-items: flex-start;
+//     position: relative;
+// }
+
+// .schritt-2 {
+//     border-left: 1px dotted rgba(0, 0, 0, 0.2);
+//     border-right: 1px dotted rgba(0, 0, 0, 0.2);
+// }
+
+// .schritte:before,
+// .schritte:after {
+//     content: "";
+//     display: block;
+//     width: 100%;
+//     position: absolute;
+//     background: white;
+//     height: 40px;
+// }
+
+// .schritte:after {
+//     bottom: 0;
+//     left: 0;
+// }
+
+// .schritte > div {
+//     width: 33.33%;
+//     padding: 40px;
+//     display: flex;
+//     flex-wrap: wrap;
+// }
+
+// .schritte h2 {
+//     width: auto;
+//     padding-top: 20px;
+//     height: 70px;
+// }
+
+// .schritte p {
+//     margin-bottom: 10px;
+//     z-index: 1;
+// }
+
+// .schritte > div > h2 {
+//     border-bottom: 1px dotted;
+// }
+
+// .icon-1,
+// .icon-2,
+// .icon-3 {
+//     width: 90px;
+//     height: 90px;
+//     border-radius: 45px;
+//     position: relative;
+//     flex-shrink: 0;
+//     margin-right: 10px;
+//     transform: translate(-10px);
+//     margin-bottom: 20px;
+// }
+
+// .icon-1:before,
+// .icon-2:before,
+// .icon-3:before {
+//     width: 100%;
+//     height: 100%;
+//     content: "";
+//     position: absolute;
+// }
+
+// .icon-1 {
+//     background-image: -ms-linear-gradient(bottom, #004A7C 0%, #0067ad 100%);
+//     background-image: -moz-linear-gradient(bottom, #004A7C 0%, #0067ad 100%);
+//     background-image: -o-linear-gradient(bottom, #004A7C 0%, #0067ad 100%);
+//     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #004A7C), color-stop(100, #0067ad));
+//     background-image: -webkit-linear-gradient(bottom, #004A7C 0%, #0067ad 100%);
+//     background-image: linear-gradient(to top, #004A7C 0%, #0067ad 100%);
+// }
+
+// .icon-1:before {
+//     background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/Icon-1.svg);
+// }
+
+// .schritt-1 h2 {
+//     color: #004a7c !important;
+// }
+
+// .icon-2 {
+//     background-image: -ms-linear-gradient(bottom, #E99900 0%, #f2c100 100%);
+//     background-image: -moz-linear-gradient(bottom, #E99900 0%, #f2c100 100%);
+//     background-image: -o-linear-gradient(bottom, #E99900 0%, #f2c100 100%);
+//     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #E99900), color-stop(100, #f2c100));
+//     background-image: -webkit-linear-gradient(bottom, #E99900 0%, #f2c100 100%);
+//     background-image: linear-gradient(to top, #E99900 0%, #f2c100 100%);
+// }
+
+// .icon-2:before {
+//     background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/Icon-2.svg);
+// }
+
+// .schritt-2 h2 {
+//     color: #e99900 !important;
+// }
+
+// .icon-3 {
+//     background-image: -ms-linear-gradient(bottom, #007c06 0%, #00AD08 100%);
+//     background-image: -moz-linear-gradient(bottom, #007c06 0%, #00AD08 100%);
+//     background-image: -o-linear-gradient(bottom, #007c06 0%, #00AD08 100%);
+//     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #007c06), color-stop(100, #00AD08));
+//     background-image: -webkit-linear-gradient(bottom, #007c06 0%, #00AD08 100%);
+//     background-image: linear-gradient(to top, #007c06 0%, #00AD08 100%);
+// }
+
+// .icon-3:before {
+//     background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/Icon-3.svg);
+// }
+
+// .schritt-3 h2 {
+//     color: #007C06 !important;
+// }
