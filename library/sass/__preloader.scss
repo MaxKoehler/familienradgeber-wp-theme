@@ -1,0 +1,67 @@
+
+/**
+ * Globally set the body opacity to 0...
+ * - This makes the page unseeable for .no-js users...
+ * => Implement .no-js/.js class function!
+ * => So now it only gets hidden when the .js class exists, but maybe turn that around, so that it is initially hidden but shown at .no-js...
+ */
+.js {
+  body {
+    opacity: 0;
+  }
+}
+
+/**
+ * Spinner
+ */
+
+@keyframes rotating-function {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// => a div with class or id = "preloader" would be handy!
+.site {
+  position: relative;
+  &:before,
+  &:after {
+    // position: fixed;
+  }
+  &:before {
+    // content: "";
+    // background-color: hsla(0,0%,0%,.125);
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // z-index: 1000;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    left: calc(50% - 70px);
+    top: 500px;
+    width: 140px;
+    height: 140px;
+    // z-index: 10000;
+    // max-width: 140px;
+    // max-height: 140px;
+    // background-color: hsla(0,0%,0%,1);
+    background-image: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/FRG-Loader-1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    // background-size: contain;
+    animation: rotating-function 5s linear infinite;
+    z-index: -1; // 1010;
+  }
+}

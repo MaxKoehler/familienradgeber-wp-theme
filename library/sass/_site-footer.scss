@@ -1,0 +1,69 @@
+/* FOOTER */
+
+.site-footer {
+  background-color: #f0f0f0;
+  color: #61656b;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/concrete-2.jpg);
+
+  // padding: 0 40px !important;
+  // display: flex;
+  // justify-content: center;
+
+  border-top: 1px solid white;
+  position: relative;
+}
+
+.footer-widgets {
+  padding-top: 30px;
+  border-bottom: 1px solid #ffffff;
+  // display: flex;
+  // padding: 60px 20px 0;
+}
+
+.footer-widgets .block {
+    // width: 33.33% !important;
+    // margin-right: 0 !important;
+    // padding: 0 40px;
+}
+
+.site-footer div.col-full {
+  // display: block;
+  // margin: 0;
+}
+
+.site-footer h3 {
+  color: #7c0029 !important;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.site-footer h4 {
+  color: #002b48;
+}
+
+.site-footer p,
+.site-footer a {
+  color: black !important;
+}
+
+.site-footer a {
+  font-weight: 500;
+}
+
+.site-info {
+  // padding: 40px 0;
+  text-align: center;
+}
+
+.site-footer:after {
+  content: "" !important;
+  display: block;
+  height: 200px;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/Fahrrad-frei-Zusatzzeichen_1022-10.svg) no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: 150px;
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+}

@@ -1,0 +1,39 @@
+/* BACK TO TOP */
+
+#wpfront-scroll-top-container {
+    width: 60px;
+    height: 60px;
+}
+
+#wpfront-scroll-top-container img {
+    display: none;
+}
+
+#wpfront-scroll-top-container:before,
+#wpfront-scroll-top-container:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    border-radius: 100px;
+}
+
+#wpfront-scroll-top-container:before {
+    background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/back-to-top.svg);
+    z-index: 1;
+}
+
+#wpfront-scroll-top-container:after {
+    z-index: 0;
+    background: white;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+    opacity: .8;
+    transition: all .5s ease;
+}
+
+#wpfront-scroll-top-container:hover:after {
+    opacity: 1;
+    transition: all .3s ease-in-out;
+}

@@ -1,0 +1,876 @@
+
+// .site:before {
+//   content: "storefront-child-theme-master/library/css/style.css";
+//   position: absolute;
+//   z-index: 1000; // .site-header: 999;
+//   padding: 0 .5em;
+// }
+
+@import 'mixins';
+@import 'variables';
+
+/**
+ * Demo-Store-Notification
+ */
+.demo_store {
+  // display: block; // Should be default
+  // transform: translateY(0px); // Should be default
+  // opacity: 1; // Should be default
+
+  font-size: 87.5%; // 14px; // => 16px = 1px => 14px = 0.875em // Can just use % as well
+  line-height: 1.5;
+  padding: 1em;
+
+  transition: all .4s ease;
+  // => transition: all will break the default jQuery .fadeToggle / .slideToggle
+
+  &.close {
+    transform: translateY(1.5em);
+    // Because this refers to the current elements size, when reusing this function, it will result in different speeds...? => We need a fixed value here. e.g. 3em...
+    opacity: 0;
+  }
+  &.hidden {
+    display: none;
+  }
+
+
+}
+
+.close-button {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 1000;
+  line-height: 1;
+  padding: .5em;
+  border: .075em solid hsla(0,0%,100%,.75);
+  // float: right;
+  // margin-left: .5em;
+  background: darkblue;
+  color: #ccc;
+  transition: all .2s ease;
+  &:focus,
+  &:hover {
+    color: #fff;
+    background: darkblue;
+    border-color: hsla(0,0%,100%,.75);
+  }
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+
+/* Headings
+   ========================================================================== */
+
+
+/* Syntax as in Storefront by default: */
+
+.alpha,
+h1 {
+    /* font-size: 2.618em; */
+    /* line-height: 1.214; */
+    /* letter-spacing: -1px; */
+}
+
+.beta,
+h2 {
+    /* font-size: 2em; */
+    /* line-height: 1.214; */
+}
+
+.gamma,
+h3 {
+    /* font-size: 1.618em; */
+    /* font-weight: 600; */
+}
+
+.delta,
+h4 {
+    /* font-size: 1.387em; */
+}
+
+
+
+/**
+ * Breadcrumb
+ */
+.woocommerce-breadcrumb a:first-of-type {
+    // display: none;
+}
+
+
+/**
+ * Sidebar
+ */
+
+
+/**
+ * Widgets
+ */
+
+
+/**
+ * Widget-Title
+ */
+
+
+/* Storefront Default */
+
+.widget h2.widgettitle,
+.widget h3.widget-title {
+    font-size: 1.387em;
+    letter-spacing: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    padding: 0 0 1em;
+    margin-bottom: 1em;
+    font-weight: 700;
+}
+
+
+/* Fix */
+
+.widget h2.widgettitle,
+.widget h3.widget-title {
+    font-size: 1.387em;
+    letter-spacing: 1px;
+}
+
+
+/**
+ * Content-Box-Contrast
+ */
+
+
+/*
+- Das größte Problem ist bei der Desktop-Darstellung, dass es echt kacke aussieht, wenn man zwei vertikale Text-Fluss Linien hat!... => Dazu siehe Mobil/Tablet, dort ist es nur eine vertikale Linie und es sieht sooo viel besser aus!... Aber wie soll man das machen bei Desktop, vor allem mit der Sidebar...
+  => Eine Lösung könnte sein, dass man halt NUR Content-Boxes verwendet... dann gibt es global über mehrere Seiten gesehen aber TROTZDEM 2 vertikale Textflusslinien... **?? Nennt man das so?...
+*/
+
+.content-box {
+    margin-left: -1.387em;
+    margin-right: -1.387em;
+    padding: 1.387em;
+    margin-bottom: 1.618em;
+}
+
+@media (min-width: 569px) {
+    .content-box {
+        margin-left: -2.618em;
+        margin-right: -2.618em;
+        padding: 2.618em;
+    }
+}
+
+@media (min-width: 768px) {
+    .content-box {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1.618em;
+        border-radius: 3px;
+    }
+}
+
+.content-box >:last-child {
+    margin-bottom: 0;
+}
+
+.contrast {
+    /*background: #6fcbf3;*/
+    color: white;
+}
+
+.contrast h1,
+.contrast h2,
+.contrast h3,
+.contrast h4,
+.contrast h5,
+.contrast h6 {
+    color: inherit;
+}
+
+
+/**
+ * Background Classes
+ */
+
+
+/**
+ * Dynamic Background Overlay
+ */
+
+.bg-darker {
+    background-color: hsla(0, 0%, 0%, .25);
+}
+
+.bg-lighter {
+    background-color: hsla(0, 0%, 100%, .25);
+}
+
+
+/**
+ * Constant Colors
+ */
+
+.bg-lightblue {
+    background-color: #6fcbf3;
+}
+
+.bg-blue {
+    background-color: #004a7c;
+}
+
+.bg-orange {
+    background-color: #e99900;
+}
+
+.bg-green {
+    background-color: #007c06;
+}
+
+.bg-darkgrey {
+    background-color: #484c51;
+}
+
+
+/*.bg-lightgrey {
+  background-color: hsla(0, 0%, 0%, .125);
+}*/
+
+.border {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #484c51;
+    /*hsla(0, 0%, 0%, 1);*/
+}
+
+.contrast.border {}
+
+
+/*.three-steps-intro {
+}
+
+.three-steps-intro > i {
+}*/
+
+.bg-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-12.5%) translateY(42.5%);
+    transition: all .625s ease;
+}
+
+
+/* SlideOut (to right) for Mobile */
+
+// @media (max-width: 568px) {
+//     .bg-icon {
+//         opacity: 0;
+//         transform: translateX(106.75%) translateY(42.5%);
+//     }
+//     /* Adjust FontSize (smaller) */
+//     .bg-icon.fa-x5 {
+//         /*font-size: 4.75em;*/
+//     }
+// }
+
+
+/* Sliding in
+- Little too Slow (1.375s)*/
+
+// .bg-bicycle .bg-icon {
+//     animation-duration: 1.5s;
+//     animation-name: slideIn;
+//     animation-timing-function: ease-out;
+// }
+
+// .bg-container:hover .bg-icon,
+// .bg-container:focus .bg-icon {
+//     /* animation-duration: 1s; */
+//     /* animation-name: slideOut; */
+//     /* animation-timing-function: ease-in; */
+// }
+
+// @keyframes slideIn {
+//     from {
+//         opacity: 0;
+//         transform: translateX(-37.5%) translateY(42.5%);
+//     }
+//     to {
+//         opacity: 1;
+//         transform: translateX(-12.5%) translateY(42.5%);
+//     }
+// }
+
+// @keyframes slideOut {
+//     from {
+//         opacity: 1;
+//         transform: translateX(-12.5%) translateY(42.5%);
+//     }
+//     to {
+//         opacity: 0;
+//         transform: translateX(106.75%) translateY(42.5%);
+//     }
+// }
+
+
+/*.bg-icon {
+  right: 1.387rem;
+}
+
+@media (min-width: 569px) {
+  .bg-icon {
+    right: 2.618rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-icon {
+    right: 1.618rem;
+  }
+}*/
+
+
+/**
+ * Site-Background
+ */
+
+
+/*
+- Hier mit >= Desktop Media-Query; ist die Frage ob man das für Mobil/Tablet benötigt, immerhin sind das 217kb...
+- Vorerst bleibt es jetzt mal für alle Medien...
+ */
+
+@media (min-width: 768px) {
+    body {
+        background-image: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/05/purty_wood.png);
+    }
+    .content-area,
+    .widget-area {
+        background-color: #fff;
+        padding: 1.618em;
+        border-radius: 5px;
+        /* 3px; */
+    }
+    .content-area {}
+    .widget-area {}
+}
+
+
+/*
+=> Dann benötigt das Standard Template Content+Sidebar weißen Hintergrund...
+ */
+
+
+/* Über uns */
+
+.page-ueber-uns {}
+
+.page-ueber-uns .list-employees {
+    margin-left: 0;
+    list-style: none;
+}
+
+@media (min-width: 569px) {
+    .page-ueber-uns .list-employees {
+        position: relative;
+    }
+    .page-ueber-uns .list-employees img {
+        position: absolute;
+        left: 0;
+    }
+    .page-ueber-uns .list-employees > li {
+        /* 132 (image) + 16 (1em) = 148px */
+        margin-left: 148px;
+    }
+}
+
+@media (min-width: 768px) {}
+
+
+/**
+ * Image List (Das Team)...
+ */
+
+
+/*
+Probleme bei Namensgebung, ob entweder über .page-das-team oder, und einer Container Klasse oder einer Klasse für die spezielle Liste... Oder als :first-child, aber das macht irgendwie wenig Sinn? Villeicht doch...
+ */
+
+.page-ueber-uns .entry-content ul {
+    /*margin: 0 0 1.618em 3em;*/
+    /*margin-left: calc(1.618em*9.5);*/
+    /* First Mobile List */
+    /* margin-left: 0; */
+    /* list-style: none; */
+}
+
+.page-ueber-uns .entry-content ul li {
+    /* position: relative; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.page-ueber-uns .entry-content ul li p:last-child {
+    /*order: -1;*/
+    /* Set as 1. Element */
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*width: calc(1.618em*9);*/
+    /*transform: translateX(calc(-100% - 1.618em*0.5));*/
+}
+
+.page-ueber-uns .entry-content ul li p:last-child img {
+    /* max-width: 100%; */
+    /* width: 100%; */
+    /* height: auto; */
+    /*border-width: calc(1.618em*2);*/
+    /*border-style: solid;*/
+}
+
+.page-ueber-uns .entry-content ul li:first-child p:last-child img {
+    /* border-color: #6fcbf3; */
+    /* Light-Blue */
+}
+
+.page-ueber-uns .entry-content ul li:nth-child(2) p:last-child img {
+    /* border-color: #004a7c; */
+    /* Dark-Blue */
+}
+
+.page-ueber-uns .entry-content ul li:last-child p:last-child img {
+    /* border-color: #e99900; */
+    /* Dark-Blue */
+}
+
+
+/**
+ * Produkte Start
+ */
+
+
+/*
+- Pretty messed up... could also need better syntax inside the html editor...
+- no time!!!
+- not much sence to change this now...
+
+-> UX/UI Thing:
+- Now when you go to a specific product preview page out of the start product page, the Site-Title that has been overlaying the presentational image, gets pushed below it, as usual. Now you would have to make it also an Overlay, but bigger font-size... that would be the best case. OR not define the overlay... but its more handy and makes alot of sense, because the image is not that important, it plays together, you can use the image as an definition of the product type still, although there is text overlaying it. Therefore it makes much sense...
+=> So the logical consequence is to create an card text overlay for the product sub-pages as well...
+ */
+
+.page-produkte {}
+
+.page-produkte .entry-content .wp-caption {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-produkte .entry-content .wp-caption .wp-caption-text {
+    position: absolute;
+    /* Absolute position the element... */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* ...to the bottom of the parent container, if not set to static (default) => relative */
+    padding: 0;
+    /* Set padding to the link element, so there is no non-linking space */
+    border: none;
+    /*background-color: hsla(0,0%,100%,.5);*/
+    /* White */
+    background-color: hsla(0, 0%, 0%, .5);
+    /* Black */
+    border-radius: 0 0 3px 3px;
+}
+
+.page-produkte .entry-content .wp-caption .wp-caption-text a {
+    display: block;
+    padding: .75rem 1.25rem;
+    /* Default Heading Style */
+    /*color: #484c51;*/
+    /* Black */
+    color: #fff;
+    /* White */
+    /*font-size: 1.618em;*/
+    /* h3 */
+    /* This should really be done through a class, so that you can then in the end define a smaller font-size for headlines, etc. for mobile... */
+    /* Do it! */
+    /* Aaaand the class is: .gamma or .h3 => .h3 seems more logical... but for now it is .gamma.. */
+    /* .h3 is inside bootstrap and also sets margin-bottom... => Would have to get negated then... */
+    /* .gamma is this 1.618em and .h3 is 1.75rem, maybe generally it is a good idea to use rem for this kind, so it is always the same size and not dependand on other stuff... */
+    /* Example: Sidebar .h3 will then become the original h3, but it should be smaller? -_- */
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.page-produkte .entry-content .wp-caption .wp-caption-text a:hover,
+.page-produkte .entry-content .wp-caption .wp-caption-text a:focus {
+    text-decoration: none;
+    color: #fff;
+    /* White */
+}
+
+
+/* Default WordPress Caption Styles */
+
+.wp-caption .wp-caption-text {
+    /*text-align: left;*/
+    /*font-style: italic;*/
+    /*border-bottom: 2px solid rgba(0,0,0,.05);*/
+    /*padding: 1em 0;*/
+}
+
+
+/************************************/
+
+
+/* J - CSS */
+
+
+/************************************/
+
+.content-area {
+    padding: 40px 40px 10px !important;
+    margin-right: 20px !important;
+}
+
+.site-main {
+    margin-bottom: 0;
+}
+
+.hentry {
+    margin: 0;
+}
+
+.entry-header {
+    border-bottom: 0;
+    margin-bottom: 30px !important;
+    margin-left: -20px;
+    width: calc(100% + 40px);
+    margin-top: -20px;
+    border: none !important;
+    max-height: 553px;
+    overflow: hidden;
+    position: relative;
+}
+
+h1.entry-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    margin: 0;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.produkte .entry-header {
+    display: none;
+}
+
+.entry-content {
+    border-top: 1px dotted rgba(0, 0, 0, 0.2);
+    padding-top: 40px;
+}
+
+.page-start .entry-content,
+.produkte .entry-content {
+    border-top: none;
+    padding-top: 0;
+}
+
+
+/* pages without featured image */
+
+.service .entry-header,
+.ueber-uns .entry-header,
+.kontakt .entry-header {
+    border-bottom: 0;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 30px !important;
+    position: relative;
+    margin-top: 0;
+}
+
+.service h1,
+.ueber-uns h1,
+.kontakt h1 {
+    position: initial;
+    bottom: initial;
+    width: initial;
+    background: initial;
+    margin: initial;
+    padding-top: initial;
+}
+
+p+h2 {
+    margin-top: 1em;
+}
+
+
+
+@import "_preloader";
+
+/* HEADER */
+
+@import "_slideshow";
+
+
+.claim {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 35px;
+    line-height: 2em;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+    display: flex;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    flex-wrap: wrap;
+    left: calc(50% - 250px);
+    top: -4em;
+}
+
+.claim p {
+    margin: 0;
+}
+
+.claim-text-2:after,
+.claim-text-1:after {
+    width: 100%;
+    content: "";
+    height: 1px;
+    border-top: 1px dotted white;
+    display: block;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+    margin-top: -.15em;
+}
+
+/**
+ * Site-Logo
+ */
+
+.site-header .site-branding {
+    float: none;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 1.618em;
+}
+
+@media (min-width: 768px) {
+    .site-header .site-branding {
+        display: inline-block;
+        float: none;
+        clear: both;
+        min-width: 200px;
+        width: 22.7272727272%;
+        margin-right: 4.347826087%;
+        margin-bottom: 2.618em;
+    }
+}
+
+.site-header .site-branding h1 {
+    max-width: 150px;
+}
+
+@media (min-width: 544px) {
+    .site-header .site-branding h1 {
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 768px) {
+    .site-header .site-branding h1 {
+        max-width: none;
+    }
+}
+
+.site-header .site-branding h1 a {
+    display: block;
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 50%;
+    padding-top: 100%;
+    height: 0;
+    background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/FRG-Logo-Redesign.png) no-repeat;
+    background-size: contain;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+@media (min-width: 768px) {
+    .site-header .site-branding h1 a {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.25);
+    }
+}
+
+.site-header .site-branding .site-description {
+    display: none;
+}
+
+
+/*
+.site-header .custom-logo-link {
+  width: 250px;
+  height: 250px;
+  background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/FRG-Logo-Redesign.png) no-repeat;
+  background-size: contain;
+  border: 10px solid rgba(255,255,255,0.3);
+  border-radius: 125px;
+  margin-left: -10px;
+}
+.site-header .custom-logo-link img {
+  display: none;
+}*/
+
+.header-icons-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 5px;
+    right: 5px;
+}
+
+.header-icons-container > a {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    transition: all .5s ease;
+}
+
+.header-icons-container > a:hover {
+    transform: scale(1.1);
+    transition: all .15s ease-in-out;
+}
+
+.header-icons-container > a > div {
+    height: 100%;
+}
+
+.header-icon-1 {
+    background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/header-icon-googlemaps.svg);
+}
+
+.header-icon-2 {
+    background: url(http://familienradgeber.com/wordpress/wp-content/uploads/2016/06/header-icon-fb.svg);
+}
+
+
+/* CONTENT */
+
+.content-area {
+    padding: 40px;
+    margin-right: 20px !important;
+}
+
+
+
+.site-content div.col-full,
+.site-footer div.col-full {
+
+  // max-width: 100%;
+  // width: 1100px;
+
+  // padding: 0;
+  // - It get's additional padding left/right for large-desktop to adjust the main-content width
+
+  // margin-left: 20px !important;
+  // margin-right: 20px !important;
+
+  // display: flex;
+  // justify-content: center;
+  // - This shouldn't be necessary
+}
+
+.widget-area {
+  width: 25%; // - Why update the sidebar width?
+}
+
+.site-content {
+  min-height: 90vh; // AJAX fix to prevent the site-footer move up very close to the site-header and therefore overlap with the preloader.
+  // => Theoretically 100% width/height of viewport overlay with fixed preloader image in the middle instead?
+
+  // display: flex;
+  // justify-content: center;
+  // - Again shouldn't be necessary
+}
+
+@import "page-start";
+
+
+/* Produkte */
+
+.main-selection-container {
+    display: flex;
+    width: calc(100% + 60px);
+    flex-wrap: wrap;
+    margin-left: -30px;
+    margin-bottom: 30px;
+    margin-top: -30px;
+}
+
+.main-selection-item {
+    max-width: calc(50% - 20px);
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.main-selection-container a h1 {
+    color: #fff !important;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    font-weight: 500;
+    font-size: 45px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px dotted white;
+    margin: 0;
+}
+
+.main-selection-container a img {
+    width: auto;
+    height: 100%;
+    max-width: initial;
+}
+
+@media (min-width: 768px) {
+    /* Ajax FIX */
+    .site-content {
+        min-height: 90vh;
+    }
+}
+
+@import "_main-navigation";
+
+@import "_scroll-top";
+@import "_sharedaddy";
+
+@import "site-header";
+@import "site-footer";
+
+
+.demo_store {
+  // font-size: 14px;
+}

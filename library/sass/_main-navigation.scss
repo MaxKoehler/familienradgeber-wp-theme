@@ -1,0 +1,750 @@
+// Still really not good worked out.
+
+$blue: #004a7c;
+$color-1: $blue;
+// color: #004a7c; // Blue
+
+
+
+
+@media (max-width: 768px) {
+  .main-navigation  {
+    div.menu,
+    .handheld-navigation {
+      background-color: white;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .main-navigation {
+    ul {
+      &.menu,
+      &.nav-menu {
+        margin-right: -.125em;
+        > li {
+          float: left;
+          margin-right: .125em;
+          background-color: white; // Why is the background-color not set on the li element?
+          > a {
+          }
+        }
+        ul {
+          &.sub-menu,
+          &.children {
+            background-color: transparent;
+            // $zBase: 99999;
+            // z-index: $zBase; // => Don't change this z-index!
+            &:before {
+              @include pseudo-fill;
+              background-color: white;
+              z-index: 0;
+            }
+            &:after {
+              @include pseudo-fill;
+              box-shadow: 0 0 1em 0 hsla(0,0%,0%,.25); // rgba(0,255,0,0.5);
+              z-index: -3;
+            }
+            > li {
+              > .sub-menu {
+                z-index: -1;
+                > li {
+                  > .sub-menu {
+                    z-index: -2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+.site-header {
+  ul {
+    &.menu,
+    &.nav-menu {
+      li {
+        &.current-page-ancestor,
+        &.current-menu-ancestor,
+        &.current_page_ancestor {
+          background: $blue;
+          > a {
+            color: white;
+          }
+        }
+        &.current-menu-item {
+          // background: deepskyblue; // $blue;
+          background: $blue;
+          > a {
+            // color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .main-navigation {
+    ul {
+      &.menu,
+      &.nav-menu {
+        ul {
+          a:hover,
+          li:hover > a {
+            background-color: hsla(0,0%,0%,.25); // transparent; // $blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-navigation ul li a:hover,
+.main-navigation ul li:hover > a,
+.site-header ul.menu li.current-menu-item > a {
+  // color: lime;
+}
+
+.main-navigation {
+  ul {
+    li {
+      a:hover,
+      &:hover > a {
+        color: $blue;
+      }
+    }
+  }
+}
+
+
+.main-navigation ul li a,
+ul.menu li a {
+  color: $blue;
+}
+
+.menu {
+  a {
+    // color: inherit;
+  }
+}
+
+.main-navigation {
+  ul {
+    li {
+      a {
+        // Properties automatically set via "Easy Google Fonts": font-family, font-weight
+
+        // font-size: 1.5em;
+
+        // color: hsla(0,0%,0%,1); // #d5d9db;
+        // font-weight: inherit;
+        // text-transform: uppercase; // => Easy Google Fonts
+      }
+    }
+  }
+}
+
+
+// Fix
+@media (min-width: 768px) {
+  .main-navigation ul.menu>li:first-child,
+  .main-navigation ul.nav-menu>li:first-child {
+    margin-left: 0; // -1em;
+  }
+}
+
+
+// Main Structure
+.site-header {
+  .col-full {
+    .site-branding {}
+    .secondary-navigation {}
+    .storefront-primary-navigation {
+      .main-navigation {
+        .menu-toggle {}
+        .primary-navigation {} // Desktop
+        .menu {} // Mobile
+      }
+      .site-header-cart {}
+    }
+  }
+}
+
+
+
+
+/**
+ * Button-Padding
+ */
+// Default:
+// CSS:
+// Mobile
+.main-navigation ul li a {
+    // padding: .857em 0;
+    padding: .75em 0;
+    // Here we have no left and right padding, because the whole mobile navigation is inside .col-full what already gives it left and right spacing through margin.
+    // => If this should be a 100% row, then we have to negate that spacing here.
+    display: block;
+}
+// Desktop Top Layer
+@media (min-width: 768px) {
+  .main-navigation ul.menu>li>a,
+  .main-navigation ul.nav-menu>li>a {
+      padding: .75em 1em;
+  }
+}
+// Desktop Sub-Menu
+@media (min-width: 768px) {
+  .main-navigation ul.menu ul li a,
+  .main-navigation ul.nav-menu ul li a {
+      padding: .75em 1em;
+
+      // font-weight: 400;
+
+      // font-size: .857em; // 13.712px; // default
+      // font-size: .875em; // 14px; // custom
+
+      font-weight: inherit;
+      font-size: inherit;
+
+      // Reducing font-size for sub-menus
+      // - When now the padding is done with em it will automatically resize according to this font-size
+  }
+}
+// SASS:
+// .main-navigation {
+//   // Global Styles ( Mobile + Desktop )
+//   ul.menu > li > a,
+//   ul.nav-menu > li > a {
+//     // Button Padding
+//     // padding: 0; // 1.618em 1em;
+//   }
+// }
+
+
+
+/**
+ * Site-Layout: Navigation Bar / Mobile Navigation
+ */
+.col-full {
+  background: hsla(0,100%,50%,.375);
+}
+// @media (min-width: 768px) {
+//   .col-full {
+//     max-width: 67.141em;
+//     margin-left: auto;
+//     margin-right: auto;
+//     padding: 0 2.618em;
+//     box-sizing: content-box;
+//   }
+// }
+// @media (max-width: 67.141em) {
+//   .col-full {
+//     margin-left: 2.618em;
+//     margin-right: 2.618em;
+//     padding: 0;
+//   }
+// }
+// @media (max-width: 568px) {
+//   .col-full {
+//     margin-left: 1.387em;
+//     margin-right: 1.387em;
+//     padding: 0;
+//   }
+// }
+@media (min-width: 768px) {
+  .storefront-primary-navigation {
+    clear: both;
+    background: rgba(0,0,0,.06);
+    margin-left: -99em;
+    margin-right: -99em;
+    padding-left: 99em;
+    padding-right: 99em;
+  }
+}
+.storefront-primary-navigation {
+  background-color: hsla(120,100%,50%,.375);
+}
+@media (min-width: 768px) {
+  .storefront-primary-navigation {
+    // clear: both;
+    // background: rgba(0,0,0,.06);
+    // margin-left: -2.618em; // 0; // -99em;
+    // margin-right: -2.618em; // 0; // -99em;
+    margin-left: 0; // -99em;
+    margin-right: 0; // -99em;
+    padding-left: 0; // 99em;
+    padding-right: 0; // 99em;
+  }
+}
+// Make-Row
+// @media (max-width: 67.141em) {
+//   .storefront-primary-navigation {
+//     margin-left: -2.618em;
+//     margin-right: -2.618em;
+//   }
+// }
+// @media (max-width: 568px) {
+//   .storefront-primary-navigation {
+//     margin-left: -1.387em;
+//     margin-right: -1.387em;
+//   }
+// }
+
+
+
+
+
+
+/*
+.main-navigation ul {
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.1) ;
+}
+*/
+
+/**
+ * Storefront Fixes
+ */
+@media (min-width: $desktop) {
+  .main-navigation {
+    ul {
+      &.menu,
+      &.nav-menu {
+        > li {
+          &:first-child {
+            // margin-left: 0; // Fix Storefront default
+          }
+        }
+      }
+    }
+  }
+  // This also includes the secondary navigation, which is an additional menu for the site-header.
+  .main-navigation,
+  .secondary-navigation {
+    ul {
+      ul {
+        li {
+          a {
+            // width: 200px; // Sub-Menu width
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Main-Navigation
+ */
+
+// .main-navigation ul li a,
+// .site-title a,
+// ul.menu li a,
+// .site-branding h1 a,
+// .site-footer
+// .storefront-handheld-footer-bar a:not(.button),
+// button.menu-toggle,
+// button.menu-toggle:hover {
+//   color: #d5d9db;
+// }
+
+
+@media (min-width: $desktop) {
+  .storefront-primary-navigation {
+    // background: rgba(0, 0, 0, 0.75); // Full width background layer
+  }
+  .main-navigation {
+    ul {
+      &.menu,
+      &.nav-menu {
+        li {
+        }
+        a {
+          // font-family: 'Yanone Kaffeesatz'; // => Easy Google Fonts
+          // text-transform: uppercase;
+          // font-weight: 500;
+          // letter-spacing: .04em;
+          // letter-spacing: .025em;
+          // line-height: 2.2;
+          &:hover,
+          &:focus {
+            // text-decoration: none;
+          }
+        }
+        // Nav-Bar (1. Level)
+        > li {
+          // float: left;
+          // margin-right: 2px;
+          // margin-bottom: 2px;
+          // background-color: white; // hsla(0,0%,75%,.875);
+          > a {
+            // padding: 1.618em 1em; // Storefront default
+            // padding: .75em 1.25em;
+            // font-size: 1.5em; // 1.438em; // 23px;
+            // transition: all .5s ease;
+          }
+        }
+        // Sub-Menu
+        ul {
+          &.sub-menu,
+          &.children {
+            // background-color: transparent; // hsla(0,0%,100%,1); // Sub-Menu Background
+          }
+
+          // &:before,
+          // &:after {
+          // }
+          // &:before {
+          //   content: "";
+          //   position: absolute;
+          //   top: 0;
+          //   left: 0;
+          //   right: 0;
+          //   bottom: 0;
+          //   // box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+          //   // box-shadow: 0 .375em 1em 0 rgba(0, 0, 0, .75);
+          //   background-color: hsla(0,0%,100%,1);
+          //   z-index: -1;
+          // }
+          &:after {
+            // content: "";
+            // position: absolute;
+            // top: 0;
+            // left: 0;
+            // right: 0;
+            // bottom: 0;
+            // box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+            // box-shadow: 0 .375em 1em 0 rgba(0, 0, 0, .75);
+            // z-index: -1000;
+          }
+
+          li {
+            a {
+              // padding: .857em 1.387em;
+              // font-weight: 400;
+              // font-size: .857em;
+              // font-family: 'Yanone Kaffeesatz'; // => Easy Google Fonts
+              // padding: 15px 20px ;
+              // font-weight: 100 ;
+              // color: #004a7c;
+              // font-size: 20px;
+              // line-height: 1;
+              // transition: all .5s ease;
+              // letter-spacing: .02em;
+            }
+            ul {
+              li {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} // / @media (min-width: $desktop)
+
+
+.nav-menu {
+  li {
+    &:hover {
+      ul {
+        // opacity: 1;
+        // transition: all .2s ease-in-out;
+        // transform: scaleY(1);
+        // transform-origin: top;
+      }
+    }
+    > ul {
+      // margin-left: 0;
+    }
+  }
+
+  li,
+  > li {
+    // transition: all .5s ease ;
+  }
+
+  > li {
+    &:hover {
+      // background: rgba(255, 255, 255, 1);
+      // transition: background .2s ease-in-out;
+    }
+  }
+}
+
+
+// .sub-menu {
+//     opacity: 0;
+//     transition: .5s ease-in-out;
+//     // transform: scaleY(0);
+//     transform-origin: top;
+// }
+
+
+
+.main-navigation {
+  ul {
+    li {
+      &:hover {
+        > a {
+          // text-decoration: none;
+          // transition: all .2s ease-in-out;
+          // color: #007c06;
+        }
+      }
+      a {
+        &:focus {
+          // text-decoration: none;
+          // outline: none;
+          // color: #007c06;
+        }
+      }
+    }
+    ul {
+      li {
+        // min-height: 50px;
+        // display: flex;
+        // align-items: center;
+        &:hover {
+          // background: hsla(224, 100%, 98%, 1);
+          > a {
+            // color: #007c06;
+            // background: inherit ;
+            // transition: all .2s ease-in-out;
+          }
+        }
+      }
+      ul {
+        &,
+        li > ul {
+          // transform: scaleX(0) translateX(-10em) ;
+          // transform-origin: left ;
+          // transition: all .5s ease;
+          // opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+li:hover > ul,
+ul li:hover > ul
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul ul li:hover > ul {
+    // transform: scaleX(1) translateX(0) ;
+    // transform-origin: left ;
+    // transition: all .2s ease-in-out ;
+    // opacity: 1;
+}
+.main-navigation ul ul ul li {
+    // margin: 0;
+}
+.main-navigation ul {
+    // display: block ;
+}
+.main-navigation ul ul {
+    // top: 0;
+}
+.menu-item-116 > ul {
+    // top: 50px ;
+}
+.main-navigation ul.menu ul,
+.main-navigation ul.nav-menu ul {
+  // margin-left: 1px;
+}
+.main-navigation ul.menu>li:first-child,
+.main-navigation ul.nav-menu>li:first-child {
+  // margin-left: 0;
+}
+.main-navigation ul.menu ul li.menu-item-has-children>a:after,
+.main-navigation ul.menu ul li.page_item_has_children>a:after,
+.main-navigation ul.nav-menu ul li.menu-item-has-children>a:after,
+.main-navigation ul.nav-menu ul li.page_item_has_children>a:after {
+    // display: inline-block;
+    // font: normal normal normal 1em/1 FontAwesome;
+    // font-size: inherit;
+    // text-rendering: auto;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+    // content: "\f105";
+    // float: right;
+    // line-height: 1;
+}
+.current_page_ancestor,
+.current_page_ancestor:hover,
+.current_page_ancestor > a,
+.current_page_ancestor:hover > a,
+.current_page_item > a,
+.current_page_item > a:hover {
+    // color: white ;
+    // background: #004a7c ;
+    // transition: all .2s ease-in-out;
+    // z-index: 1 ;
+}
+.main-navigation ul ul .current_page_item,
+.main-navigation ul ul .current_page_item > a,
+.main-navigation ul ul .current_page_item > a:hover {
+    // background: #004a7c ;
+    // color: white ;
+}
+
+/**
+ * Main Navigation Background Fade
+ */
+// .storefront-primary-navigation:before,
+// .storefront-primary-navigation:after {
+//   mix-blend-mode: overlay;
+// }
+// .storefront-primary-navigation:before,
+// .storefront-primary-navigation:after {
+//   content: "";
+//   width: 300px;
+//   height: 50px;
+//   display: block;
+//   position: absolute;
+//   left: -2px;
+//   transform: scaleX(-1);
+//   transform-origin: left;
+//   background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+//   opacity: .3;
+// }
+// .storefront-primary-navigation:after {
+//   transform: scaleX(1);
+//   transform-origin: left;
+//   top: 0;
+//   left: 100% ;
+// }
+
+/**
+ * Cart
+ */
+// .site-header-cart {
+//   list-style-type: none;
+//   margin-left: 0;
+//   padding: 0;
+//   margin-bottom: 0;
+// }
+// @media (min-width: 768px) {
+//   .site-header-cart {
+//     position: relative;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .woocommerce-active .site-header .site-header-cart {
+//     width: 21.7391304348%;
+//     float: right;
+//     margin-right: 0;
+//     margin-bottom: 0;
+//   }
+// }
+
+@media (min-width: 768px) {
+  .site-header-cart {
+    background: white;
+    .cart-contents {
+      padding: 0.75em 0; // 1.618em 0;
+      // => Padding left/right should be done equal to Sidebar Padding
+
+      // display: block;
+      // position: relative;
+      // background-color: transparent;
+      // height: auto;
+      // width: auto;
+      // text-indent: 0;
+    }
+  }
+}
+
+/**
+ * Hamburger-Menu
+ */
+// [ Desktop = 768px
+// @media screen and (max-width: 767px) {
+//   .storefront-hamburger-menu-active.admin-bar .main-navigation .handheld-navigation,
+//   .storefront-hamburger-menu-active.admin-bar .main-navigation div.menu {
+//     padding-top: 46px;
+//   }
+// }
+// @media screen and (min-width: 768px) {
+//   .storefront-hamburger-menu-active.admin-bar .main-navigation .handheld-navigation,
+//   .storefront-hamburger-menu-active.admin-bar .main-navigation div.menu {
+//     padding-top: 0;
+//   }
+// }
+
+/**
+ * Fix Hamburger Menu Plugin for Storefront
+ * - The styles are enqeued at max-width: $desktop
+ *   => 1 px too much
+ *   => Hide again at min-width: $desktop
+ */
+@media (min-width: $desktop) {
+  .storefront-hamburger-menu-active {
+    .main-navigation {
+      .handheld-navigation,
+      div.menu {
+        display: none!important;
+      }
+    }
+  }
+}
+
+/**
+ * Although the site-cart is hidden for mobile it also adds relative right position offset of 2.618em;
+ */
+@media screen and (max-width: 768px) {
+  .storefront-hamburger-menu-active {
+    .site-header-cart {
+      .cart-contents {
+        right: 0; // 2.618em;
+      }
+    }
+  }
+}
+
+/**
+ * Dev auto trigger hover
+ * - set class .hovered via js (inside sublime-custom-functions)
+ */
+@media (min-width: 768px) {
+  .main-navigation,
+  .secondary-navigation {
+    ul {
+      li {
+        &.focus,
+        &:hover,
+        &.hovered {
+          > ul {
+            left: 0;
+            display: block;
+            li {
+              &.focus,
+              &:hover,
+              &.hovered {
+                > ul {
+                  left: 100%;
+                  top: 0;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
